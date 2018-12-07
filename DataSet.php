@@ -36,12 +36,12 @@
         <h2>View :</h2>
 
         <div class="center-div">
-            <button type="button" class="btn btn-primary active">Protein DataSet</button>
+            <button type="button" class="btn btn-primary">Protein DataSet</button>
             <button type="button" class="btn btn-primary">Peptide DataSet</button>
             <button type="button" class="btn btn-primary">Sites Data Set</button>
         </div>
         <h2>MAPRes :</h2>
-        <button type="button" class="btn btn-primary btn-block">Data Preprocessing</button>
+        <a href="Preprocessing.php" class="btn btn-primary btn-block" role="button">Data Preprocessing</a>
         <a href="Estimation.php" class="btn btn-primary btn-block" role="button">Run Association Rule Minig Process</a>
     </div>
 <?php include "./Partials/Footer.php";?>
