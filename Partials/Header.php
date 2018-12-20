@@ -80,7 +80,14 @@
     margin-top: 6px;
 }
 
+#scrol{
 
+    width:1000px;
+    height:500px;
+    overflow:auto;
+
+}
+        }
         .row:after {
             content: "";
             display: table;

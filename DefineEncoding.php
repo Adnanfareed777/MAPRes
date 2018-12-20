@@ -32,5 +32,8 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="row" id="center">
+                <input type="submit" value="Save Result">
+            </div>
         </div>
 <?php include "./Partials/Footer.php";?>
