@@ -26,7 +26,6 @@ if(isset($_POST['submit']))
                 <?php
                 if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) {
                      $xml = simplexml_load_file($filepath);
-                     global $xml;
                     foreach ($xml->Acetylation as $acetyl) {
                         ?>
                 <tr>
@@ -49,8 +48,7 @@ if(isset($_POST['submit']))
 
         <div class="center-div">
             <button type="button" class="btn btn-primary">Protein DataSet</button>
-            <a href="peptide.php"><button type="button" class="btn btn-primary">Peptide DataSet</button></a>
-            <button type="button" class="btn btn-primary">Sites Data Set</button>
+            <a href="peptide.php?filepath=<?php echo $filepath?>"><button type="button" class="btn btn-primary">Peptide DataSet</button></a>
         </div>
         <h2>MAPRes :</h2>
         <a href="Preprocessing.php" class="btn btn-primary btn-block" role="button">Data Preprocessing</a>

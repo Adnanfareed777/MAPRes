@@ -1,16 +1,18 @@
-<?php include "./Partials/Header.php";?>
+<?php include "./Partials/Header.php";
+?>
 
 <div class="container">
+    <form action="mapres.php" method="post">
     <h2>Perform Association Rule Mining Using</h2>
     <label class="radio-inline"><input type="radio" name="optradio" checked>Positive Site</label>
     <label class="radio-inline"><input type="radio" name="optradio">Negative Site</label>
     <label class="radio-inline"><input type="radio" name="optradio">Both</label>
     <div class="row">
         <div class="col-25">
-            <label for="fname">Min. Support Level</label>
+            <label for="fname">Min. Confidence Level</label>
         </div>
         <div class="col-77">
-            <input type="text" id="fname" name="firstname">
+            <input type="text" id="fname" name="support">
         </div>
         <div class="col-25">
           <p style="margin-left: 15px; font-size: 30px">%</p>
@@ -24,6 +26,7 @@
         <input type="submit" class="btn btn-primary" value="Run">
     </div>
     </div>
+    </form>
 </div>
 <div class="container">
     <div class="table-wrapper-scroll-y">
@@ -31,8 +34,7 @@
             <thead>
             <tr>
                 <th>Association Rule</th>
-                <th>LHS</th>
-                <th>RHS</th>
+
                 <th>Confidence</th>
                 <th>Min. Support</th>
             </tr>
@@ -40,32 +42,10 @@
             <tbody>
             <tr>
                 <td>&lt;A&gt;&lt;B&gt;&lt;A&gt;</td>
-                <td>&lt;A&gt;</td>
-                <td>&lt;C&gt;</td>
                 <td>30</td>
                 <td>5</td>
             </tr>
-            <tr>
-                <td>&lt;A&gt;&lt;B&gt;&lt;A&gt;</td>
-                <td>&lt;A&gt;</td>
-                <td>&lt;C&gt;</td>
-                <td>30</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>&lt;A&gt;&lt;B&gt;&lt;A&gt;</td>
-                <td>&lt;A&gt;</td>
-                <td>&lt;C&gt;</td>
-                <td>30</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>&lt;A&gt;&lt;B&gt;&lt;A&gt;</td>
-                <td>&lt;A&gt;</td>
-                <td>&lt;C&gt;</td>
-                <td>30</td>
-                <td>5</td>
-            </tr>
+
             </tbody>
         </table>
     </div>

@@ -89,7 +89,15 @@
     </body>
     <script type="text/javascript">
         function autoFill(){
-            document.getElementById('aminoacidset').value = "A,R,N,D,B,C,Q,E,Z,G,H,I,L,K,M,F,P,S,T,W,Y,V";
+            if(document.getElementById('checkbox1').checked = true)
+            {
+                document.getElementById('aminoacidset').value = "A,R,N,D,B,C,Q,E,Z,G,H,I,L,K,M,F,P,S,T,W,Y,V";
+            }
+            if(document.getElementById('checkbox1').checked = false)
+            {
+                document.getElementById('aminoacidset').value = "";
+            }
+
         }
         function validate()
         {

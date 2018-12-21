@@ -1,6 +1,8 @@
 <?php include "./Partials/Header.php";
+$filepath =$_REQUEST['filepath'];
 
-include 'DataSet.php';
+//move_uploaded_file($_FILES["file"]["tmp_name"], $filepath);
+$xml = simplexml_load_file($filepath);
 
 ?>
     <div class="container">
@@ -19,15 +21,20 @@ include 'DataSet.php';
 
 
                 <?php
-
+                    $peptide =array() ;
                     foreach ($xml->Acetylation as $acetyl) {
                         ?>
                         <tr>
+                            <?php $pid =(string)$acetyl->PID?>
+                            <td><?php echo $pid ?></td>
+                            <?php $aminoacid=$acetyl->AminoAcid?>
+                            <td><?php echo  $aminoacid?></td>
+                            <?php $pos=(int)$acetyl->Position?>
+                            <td><?php echo $pos ?></td>
+                            <?php $seqence =(string)$acetyl->Sequence ?>
+                            <td><?php echo substr($seqence,$pos-9,20)?></td>
+                            <?php $peptide[] =array('pid'=>$pid,'aminoacid'=>$aminoacid,'position'=>$pos,'sequence'=>$seqence)?>
 
-                            <td><?php echo $acetyl->PID ?></td>
-                            <td><?php echo $acetyl->AminoAcid ?></td>
-                            <td><?php echo $acetyl->Position ?></td>
-                            <td><?php echo $acetyl->Sequence ?></td>
                         </tr>
                         <?php
 
@@ -43,10 +50,11 @@ include 'DataSet.php';
         <div class="center-div">
             <a href="DataSet.php"><button type="button" class="btn btn-primary">Protein DataSet</button></a>
             <a href="peptide.php"><button type="button" class="btn btn-primary">Peptide DataSet</button></a>
-            <button type="button" class="btn btn-primary">Sites Data Set</button>
+
         </div>
         <h2>MAPRes :</h2>
+
+        <a href="Estimation.php?filepath=<?php echo $filepath?>"><button type="button" class="btn btn-primary btn-block">Run Association Rule Minig Process</button></a><br>
         <a href="Preprocessing.php" class="btn btn-primary btn-block" role="button">Data Preprocessing</a>
-        <a href="Estimation.php" class="btn btn-primary btn-block" role="button">Run Association Rule Minig Process</a>
     </div>
 <?php include "./Partials/Footer.php";?>
